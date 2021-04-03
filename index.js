@@ -1,9 +1,9 @@
-'use strict';
+// 'use strict';
 
 const fs = require('fs');
 const http = require('http'); // Network capabilities such as building a http server
 const url = require('url');
-
+const slugify = require('slugify');
 const replaceTemplate = require('./modules/replaceTemplate'); // Import our own module
 
 ////////////////////////////////////////////////////////////////////
@@ -68,6 +68,8 @@ const templateProduct = fs.readFileSync(
 const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf-8');
 const dataObj = JSON.parse(data);
 
+const slugs = dataObj.map(el => slugify(el.productName, { lower: true })); // How to use slugify
+console.log(slugs);
 // Creating web server
 const server = http.createServer((req, res) => {
   // Callback function executed each time that a new request hits the server
