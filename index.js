@@ -85,22 +85,25 @@ const dataObj = JSON.parse(data);
 // Creating web server
 const server = http.createServer((req, res) => {
   // Callback function executed each time that a new request hits the server
-  const pathName = req.url;
+
+  const { query, pathname } = url.parse(req.url, true);
 
   // Overview page
-  if (pathName === '/' || pathName === '/overview') {
+  if (pathname === '/' || pathname === '/overview') {
     res.writeHead(200, { 'Content-type': 'text/html' });
     const cardsHtml = dataObj
       .map(el => replaceTemplate(templateCard, el))
       .join('');
-    // console.log(cardsHtml);
-
     const output = templateOverview.replace('{%PRODUCT_CARDS%}', cardsHtml);
     res.end(output);
+
     // Product page
-  } else if (pathName === '/product') {
-    res.end('This is the PRODUCT!!!');
-  } else if (pathName === '/api') {
+  } else if (pathname === '/product') {
+    res.writeHead(200, { 'Content-type': 'text/html' });
+    const product = dataObj[query.id];
+    const output = replaceTemplate(templateProduct, product);
+    res.end(output);
+  } else if (pathname === '/api') {
     res.writeHead(200, { 'Content-type': 'application/json' });
     res.end(data);
 
