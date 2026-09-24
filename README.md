@@ -48,7 +48,3 @@ The server listens on `http://127.0.0.1:8000/`.
 - Overview page: `http://127.0.0.1:8000/` or `http://127.0.0.1:8000/overview`
 - Individual product: `http://127.0.0.1:8000/product?id=0`
 - API endpoint: `http://127.0.0.1:8000/api`
-
-## License
-
-This project is licensed under the [ISC License](LICENSE).
