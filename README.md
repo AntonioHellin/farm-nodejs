@@ -1,10 +1,10 @@
-# node-farm-server
+# farm-nodejs
 
 A lightweight server-side rendered Node.js web application and simple REST API serving an organic produce store without external web frameworks.
 
 ## Project Overview
 
-`node-farm-server` demonstrates fundamental Node.js architectural concepts using built-in modules (`http`, `fs`, `url`) alongside custom template interpolation (`replaceTemplate`). The application serves dynamic overview cards and individual product pages reading directly from local JSON datasets, as well as an API endpoint exposing raw product data.
+`farm-nodejs` demonstrates fundamental Node.js architectural concepts using built-in modules (`http`, `fs`, `url`) alongside custom template interpolation (`replaceTemplate`). The application serves dynamic overview cards and individual product pages reading directly from local JSON datasets, as well as an API endpoint exposing raw product data.
 
 ## Features
 
